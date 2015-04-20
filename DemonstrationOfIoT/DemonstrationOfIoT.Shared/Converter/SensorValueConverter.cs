@@ -9,8 +9,8 @@ namespace MyerPlant.Converter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var str=parameter as string;
-            return value + str;
+            var unit=parameter as string;
+            return value + unit;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

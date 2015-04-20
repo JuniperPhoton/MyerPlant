@@ -10,7 +10,7 @@
     <SolidColorBrush x:Key="MyerPlantHumid">#FF74C6FF</SolidColorBrush>
     <SolidColorBrush x:Key="MyerPlantLight">#FFFDAC1F</SolidColorBrush>
     <SolidColorBrush x:Key="MyerPlantTemp">#FFFF5D5D</SolidColorBrush>
-    <SolidColorBrush x:Key="MyerPlantRain">#FF74C6FF</SolidColorBrush>
+        <SolidColorBrush x:Key="MyerPlantRain">#FF319FDE</SolidColorBrush>
     <x:Int32 x:Key="PivotHeaderFontsize">20</x:Int32>
     <Thickness x:Key="PhoneBorderThickness">2.5</Thickness>
     <FontFamily x:Key="PhoneFontFamilyNormal">Segoe WP</FontFamily>

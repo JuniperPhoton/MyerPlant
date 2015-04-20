@@ -105,6 +105,23 @@ namespace MyerPlant.DataModel
             }
         }
 
+        private RainSensor _currentRainSensor;
+        public RainSensor CurrentRainSensor
+        {
+            get
+            {
+                return _currentRainSensor;
+            }
+            set
+            {
+                if(_currentRainSensor!=value)
+                {
+                    _currentRainSensor = value;
+                    RaisePropertyChanged(() => CurrentRainSensor);
+                }
+            }
+        }
+
         private RelayCommand<string> _raiseCommand;
         public RelayCommand<string> RaiseCommand
         {
@@ -112,7 +129,7 @@ namespace MyerPlant.DataModel
             {
                 return _raiseCommand ?? (_raiseCommand = new RelayCommand<string>((token) =>
                  {
-                     ISensor sensor = null;
+                     SensorBase sensor = null;
                      string propertyToChange = "";
                      switch (token)
                      {
@@ -146,7 +163,7 @@ namespace MyerPlant.DataModel
                 {
                     _reduceCommand = new RelayCommand<string>((token) =>
                     {
-                        ISensor sensor = null;
+                        SensorBase sensor = null;
                         string propertyToChange = "";
                         switch (token)
                         {
@@ -182,7 +199,7 @@ namespace MyerPlant.DataModel
                 {
                     _autoSetCommand = new RelayCommand<string>((token) =>
                     {
-                        ISensor sensor = null;
+                        SensorBase sensor = null;
                         switch (token)
                         {
                             case "Humid": sensor = CurrentHumidSensor; break;
@@ -236,6 +253,14 @@ namespace MyerPlant.DataModel
             CurrentLightSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 20, 9, 5), 86.0));
             CurrentLightSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 17, 14, 5), 105.4));
             CurrentLightSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 17, 15, 5), 54.9));
+
+            CurrentRainSensor = new RainSensor();
+            CurrentRainSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 23, 19, 5), 46.2));
+            CurrentRainSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 21, 11, 5), 33.1));
+            CurrentRainSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 20, 12, 5), 48.5));
+            CurrentRainSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 20, 9, 5), 46.0));
+            CurrentRainSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 17, 14, 5), 45.4));
+            CurrentRainSensor.ValueList.Add(new SensorValue(new DateTime(2015, 4, 19, 17, 15, 5), 44.9));
         }
 
         private void ProgressAndAct(TimeSpan time, Action action)

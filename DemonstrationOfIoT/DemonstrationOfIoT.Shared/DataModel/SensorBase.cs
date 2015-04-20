@@ -9,7 +9,7 @@ using Windows.UI.Xaml;
 
 namespace MyerPlant.DataModel
 {
-    public class SensorBase:ViewModelBase,ISensor
+    public class SensorBase:ViewModelBase
     {
         public SensorValue CurrentValue
         {
@@ -20,6 +20,12 @@ namespace MyerPlant.DataModel
                     return ValueList.FirstOrDefault();
                 }
                 else return default(SensorValue);
+            }
+            set
+            {
+                if (ValueList == null) ValueList = new ObservableCollection<SensorValue>();
+                ValueList.Add(new SensorValue(DateTime.Now, value.Value));
+                RaisePropertyChanged(() => CurrentValue);
             }
         }
 
@@ -136,21 +142,6 @@ namespace MyerPlant.DataModel
         public virtual void AutoSet()
         {
 
-        }
-
-        public SensorValue OutputLastValue()
-        {
-            return CurrentValue;
-        }
-
-        public ObservableCollection<SensorValue> OutputValues()
-        {
-            return ValueList;
-        }
-
-        public void InputValue(SensorValue newValue)
-        {
-            ValueList.Add(newValue);
         }
     }
 }

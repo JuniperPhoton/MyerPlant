@@ -24,12 +24,9 @@ namespace MyerPlant.DataModel
             return Instance;
         }
 
-        private ControlMachine()
-        {
+        private ControlMachine(){ }
 
-        }
-
-        public void Raise(ISensor sensor,double valueToAdd)
+        public void Raise(SensorBase sensor,double valueToAdd)
         {
             var lastValue = sensor.ValueList.First().Value;
             var newValue = lastValue + valueToAdd;
@@ -37,7 +34,7 @@ namespace MyerPlant.DataModel
             Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>("Raise successfully!"));
         }
 
-        public void Reduce(ISensor sensor, double valueToMinus)
+        public void Reduce(SensorBase sensor, double valueToMinus)
         {
             var lastValue = sensor.ValueList.First().Value;
             var newValue = lastValue - valueToMinus;
@@ -45,7 +42,7 @@ namespace MyerPlant.DataModel
             Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>("Reduce successfully!"));
         }
 
-        public void AutoSet(ISensor sensor)
+        public void AutoSet(SensorBase sensor)
         {
             sensor.AutoSet();
         }

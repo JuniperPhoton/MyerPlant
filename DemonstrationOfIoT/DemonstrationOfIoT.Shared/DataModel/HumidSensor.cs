@@ -20,6 +20,7 @@ namespace MyerPlant.DataModel
 
         public HumidSensor()
         {
+            ModeIndex = 0;
             
         }
     }

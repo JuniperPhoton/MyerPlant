@@ -28,6 +28,7 @@ namespace MyerPlant.DataModel
         public RainSensor()
         {
             IsMaskOn = false;
+            ModeIndex = 2;
         }
     }
 }

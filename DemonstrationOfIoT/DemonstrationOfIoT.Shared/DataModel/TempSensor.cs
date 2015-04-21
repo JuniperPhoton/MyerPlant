@@ -18,7 +18,7 @@ namespace MyerPlant.DataModel
 
         public TempSensor()
         {
-            
+            ModeIndex = 2;
         }
     }
 }

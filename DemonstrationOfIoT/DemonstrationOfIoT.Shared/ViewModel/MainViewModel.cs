@@ -47,9 +47,9 @@ namespace MyerPlant.ViewModel
             CurrentPlant = Plants.LastOrDefault();
             RaisePropertyChanged(() => CurrentPlant);
 
-            Messenger.Default.Register<GenericMessage<string>>(this,"TapPlant", act =>
+            Messenger.Default.Register<GenericMessage<string>>(this,"TapPlant", args =>
                 {
-                    var name = act.Content;
+                    var name = args.Content;
                     CurrentPlant = Plants.ToList().Find((plant) =>
                     {
                         if (plant.DisplayName == name) return true;
@@ -57,7 +57,7 @@ namespace MyerPlant.ViewModel
                     });
                     RaisePropertyChanged(() => CurrentPlant);
                     Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>(""), "SideOut");
-                }); ;
+                });
         }
 
        

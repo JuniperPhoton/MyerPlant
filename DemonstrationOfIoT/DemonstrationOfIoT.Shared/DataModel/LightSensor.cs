@@ -76,6 +76,7 @@ namespace MyerPlant.DataModel
         {
             IsMaskOn = false;
             IsLightOn = true;
+            ModeIndex = 0;
         }
     }
 }

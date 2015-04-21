@@ -43,7 +43,7 @@ namespace MyerPlant.DataModel
                 {
                     valueList = value;
                     RaisePropertyChanged(() => ValueList);
-                    Messenger.Default.Send<GenericMessage<SensorValue>>(new GenericMessage<SensorValue>(ValueList.LastOrDefault()));
+                    //Messenger.Default.Send<GenericMessage<SensorValue>>(new GenericMessage<SensorValue>(ValueList.LastOrDefault()));
                 }
                 
             }
@@ -100,8 +100,10 @@ namespace MyerPlant.DataModel
             }
             set
             {
-                if (_modeIndex != value)
-                {
+                    if(value>2 || value<0)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
                     _modeIndex = value;
                     RaisePropertyChanged(() => ModeIndex);
                     switch (value)
@@ -111,22 +113,24 @@ namespace MyerPlant.DataModel
                                 ManuallyVisibility = Visibility.Visible;
                                 Auto1Visibility = Visibility.Collapsed;
                                 Auto2Visibility = Visibility.Collapsed;
+                                Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>("Set to manually successfully!"));
                             }; break;
                         case 1:
                             {
                                 ManuallyVisibility = Visibility.Collapsed;
                                 Auto1Visibility = Visibility.Visible;
                                 Auto2Visibility = Visibility.Collapsed;
+                                Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>("Set to costum successfully!"));
                             }; break;
                         case 2:
                             {
                                 ManuallyVisibility = Visibility.Collapsed;
                                 Auto1Visibility = Visibility.Collapsed;
                                 Auto2Visibility = Visibility.Visible;
+                                Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>("Set to recommand successfully!"));
                             }; break;
                     }
-                }
-
+             
             }
         }
 
@@ -136,7 +140,7 @@ namespace MyerPlant.DataModel
             Auto2Visibility = Visibility.Visible;
             ManuallyVisibility = Visibility.Collapsed;
             Auto1Visibility = Visibility.Collapsed;
-            ModeIndex = 2;
+            
         }
 
         public virtual void AutoSet()

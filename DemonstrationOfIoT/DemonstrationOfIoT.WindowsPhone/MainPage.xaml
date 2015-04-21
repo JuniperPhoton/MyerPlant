@@ -815,8 +815,8 @@
                                                 <ColumnDefinition/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBox PlaceholderText="REC:50" Grid.Column="0" Margin="0,0,10,0"/>
-                                            <TextBox PlaceholderText="REC:50" Grid.Column="1" Margin="0,0,10,0"/>
+                                            <TextBox PlaceholderText="REC:50" InputScope="Number" Grid.Column="0" Margin="0,0,10,0"/>
+                                            <TextBox PlaceholderText="REC:50" InputScope="Number"  Grid.Column="1" Margin="0,0,10,0"/>
                                         </Grid>
                                     </StackPanel>
 
@@ -920,8 +920,8 @@
                                                 <ColumnDefinition/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBox  PlaceholderText="REC:50" Grid.Column="0" Margin="0,0,10,0"/>
-                                            <TextBox  PlaceholderText="REC:50" Grid.Column="1" Margin="0,0,10,0"/>
+                                            <TextBox  PlaceholderText="REC:50"  InputScope="Number" Grid.Column="0" Margin="0,0,10,0"/>
+                                            <TextBox  PlaceholderText="REC:50"  InputScope="Number" Grid.Column="1" Margin="0,0,10,0"/>
                                         </Grid>
                                     </StackPanel>
 
@@ -1040,8 +1040,8 @@
                                                         <ColumnDefinition/>
                                                         <ColumnDefinition/>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBox PlaceholderText="REC:50" Grid.Column="0" Margin="0,0,10,0"/>
-                                                    <TextBox PlaceholderText="REC:100" Grid.Column="1" Margin="0,0,10,0"/>
+                                                    <TextBox PlaceholderText="REC:50"  InputScope="Number" Grid.Column="0" Margin="0,0,10,0"/>
+                                                    <TextBox PlaceholderText="REC:100"  InputScope="Number" Grid.Column="1" Margin="0,0,10,0"/>
                                                 </Grid>
                                             </StackPanel>
 

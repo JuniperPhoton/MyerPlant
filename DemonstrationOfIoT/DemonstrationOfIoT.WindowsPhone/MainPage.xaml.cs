@@ -33,7 +33,11 @@ namespace MyerPlant
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-            StatusBar.GetForCurrentView().BackgroundOpacity = 0.2;
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                StatusBar.GetForCurrentView().BackgroundOpacity = 0.2;
+            }
+            
 
             ContentGrid.ManipulationDelta += ContentGrid_ManipulationDelta;
             ContentGrid.ManipulationStarted += ContentGrid_ManipulationStarted;
@@ -117,13 +121,21 @@ namespace MyerPlant
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            }
+            
             Frame.BackStack.Clear();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+            }
             if (_isInSide)
             {
                 SideOutStory.Begin();

@@ -5,7 +5,6 @@
     xmlns:Converter="using:MyerPlant.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="MyerPlant.MainPage"
     
     mc:Ignorable="d">
